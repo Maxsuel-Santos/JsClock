@@ -10,7 +10,12 @@
     --black: #091921;
     --grayShadow: #ffffff0d;
     --blackShadow: #0000004d;
+    --writeShadowLight: #ffffff80;
+    --blackShadowLight: #0000001a;
     --hourPoint: #ff105e;
+    --secondPoint: #008eff;
+    --writeLight: #d1dae3;
+    --borderLight: #cad3dc;
 }
 
 body {
@@ -22,13 +27,17 @@ body {
     font-family: 'Inter', sans-serif;
 }
 
+body.light {
+    background-color: var(--writeLight);
+}
+
 .clock {
     width: 350px;
     height: 350px;
     display: flex;
     justify-content: center;
     align-items: center;
-    background-image: url(../img/clock.png);
+    background: var(--black) url(../img/clock.png);
     background-size: cover;
     border: 4px solid var(--black);
     border-radius: 50%;
@@ -36,6 +45,16 @@ body {
     inset 0 -15px 15px var(--grayShadow),
     0 15px 15px var(--blackShadow),
     inset 0 15px 15px var(--blackShadow);
+}
+
+body.light .clock {
+    background: var(--writeLight) url(../img/clock.png);
+    background-size: cover;
+    border: 4px solid var(--borderLight);
+    box-shadow: -8px -8px 15px var(--writeShadowLight),
+    10px 10px 10px var(--blackShadowLight),
+    inset -8px -8px 15px var(--writeShadowLight),
+    inset 10px 10px 10px var(--blackShadowLight);
 }
 
 .clock::before {
@@ -46,6 +65,10 @@ body {
     background-color: #fff;
     border-radius: 50%;
     z-index: 10000;
+}
+
+body.light .clock::before {
+    background-color: #008eff;
 }
 
 .clock .hour,
@@ -96,14 +119,49 @@ body {
     border-radius: 6px 6px 0 0;
 }
 
+body.light .mn::before {
+    background-color: var(--black);
+}
+
 .sc::before {
     content: "";
     position: absolute;
     width: 2px;
     height: 150px;
-    background-color: #fff;
+    background-color: var(--secondPoint);
     z-index: 12;
     border-radius: 6px 6px 0 0;
+}
+
+.toggleClass {
+    position: absolute;
+    top: 30px;
+    right: 150px;
+    width: 20px;
+    height: 20px;
+    font-size: 18px;
+    border-radius: 50%;
+    background-color: var(--writeLight);
+    color: var(--writeLight);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+}
+
+.toggleClass::before {
+    position: absolute;
+    left: 28px;
+    content: "Light Mode";
+    white-space: nowrap;
+}
+
+body.light .toggleClass {
+    background-color: var(--black);
+    color: var(--black);
+}
+
+body.light .toggleClass::before {
+    content: "Dark Mode";
 }
 
 footer {
@@ -115,6 +173,10 @@ footer > a {
     text-decoration: none;
     color: #ffffffb4;
     font-size: 12px;
+}
+
+body.light footer > a {
+    color: var(--black);
 }
 
 @media only screen and (max-width: 450px) {
@@ -155,3 +217,4 @@ footer > a {
         height: 115px;
     }
 }
+
