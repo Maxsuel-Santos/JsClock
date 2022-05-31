@@ -1,0 +1,34 @@
+body.light {
+    background-color: var(--writeLight);
+}
+
+body.light .clock {
+    background: var(--writeLight) url(../../../../src/img/clock.png);
+    background-size: cover;
+    border: 4px solid var(--borderLight);
+    box-shadow: -8px -8px 15px var(--writeShadowLight),
+    10px 10px 10px var(--blackShadowLight),
+    inset -8px -8px 15px var(--writeShadowLight),
+    inset 10px 10px 10px var(--blackShadowLight);
+}
+
+body.light .clock::before {
+    background-color: var(--secondPoint);
+}
+
+body.light .mn::before {
+    background-color: var(--black);
+}
+
+body.light .toggleClass {
+    background-color: var(--black);
+    color: var(--black);
+}
+
+body.light .toggleClass::before {
+    content: "Dark Mode";
+}
+
+body.light footer > a {
+    color: var(--black);
+}
