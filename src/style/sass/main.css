@@ -23,11 +23,11 @@ body {
 
 /* Img de fundo => Tema dark e light */
 .clock {
-  background: var(--black) url("../../../../src/img/clock.png");
+  background: var(--black) url("../../../src/img/clock.png");
 }
 
 body.light .clock {
-  background: var(--writeLight) url("../../../../src/img/clock.png");
+  background: var(--writeLight) url("../../../src/img/clock.png");
 }
 
 :root {
