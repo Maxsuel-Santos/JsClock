@@ -14,3 +14,13 @@ body {
     background-color: var(--black);
     font-family: 'Inter', sans-serif;
 }
+
+/* Img de fundo => Tema dark e light */
+
+.clock {
+    background: var(--black) url("../../../../src/img/clock.png");
+}
+
+body.light .clock {
+    background: var(--writeLight) url("../../../../src/img/clock.png");
+}
